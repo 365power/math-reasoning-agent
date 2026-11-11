@@ -1,6 +1,6 @@
 # 科学推理与研究数据采集 Agent（数学/物理基线）
 
-用 s01 的 Agent 循环 + s02 的工具分发表，连接 OpenAI 兼容的大模型 API，
+通过 Agent 循环和工具分发表，连接 OpenAI 兼容的大模型 API，
 对数学/物理题做多次 rollout。最终交付物是 6.1/6.2 规定的一条完整记录：
 题目数据、轨迹、8 次 35B rollout 和正确率全部在一个对象里，
 按 `5.1` 写成 `UTF-8`、一行一条、紧凑 JSON 的 `.jsonl` 文件。
@@ -65,13 +65,13 @@
 
 ---
 
-## 2. S1 / S2 与 Agent 的对应关系
+## 2. 数据结构与 Agent 对应关系
 
 | 名称 | 含义 | 代码位置 |
 |---|---|---|
-| **S1：题目与标准** | 6.1 静态字段：`id`、`question`、`answer`、`rubric`、`solution_steps`、`evidence`、`human_review` 等 | `cases/<题目id>/case.json`、`agent_project/case.py` |
-| **S2：轨迹与评测** | 6.2 动态字段：`trajectory`、`rollout_35B_results`、`average_accuracy`，含 messages、tool_calls、usage、tool_statistics | `agent_project/runner.py` |
-| **Agent 内核** | s01 的 `while True` 循环 + s02 的“工具名 → 处理函数”查表分发 | `agent_project/agent.py`、`agent_project/tools/registry.py` |
+| **题目与标准（6.1）** | 6.1 静态字段：`id`、`question`、`answer`、`rubric`、`solution_steps`、`evidence`、`human_review` 等 | `cases/<题目id>/case.json`、`agent_project/case.py` |
+| **轨迹与评测（6.2）** | 6.2 动态字段：`trajectory`、`rollout_35B_results`、`average_accuracy`，含 messages、tool_calls、usage、tool_statistics | `agent_project/runner.py` |
+| **Agent 内核** | `while True` 循环 + “工具名 → 处理函数”查表分发 | `agent_project/agent.py`、`agent_project/tools/registry.py` |
 | **协议适配** | 参照 `agent.py`：OpenAI 兼容 `chat.completions`、`tool_calls`、`role="tool"`、`tool_call_id` | `agent_project/llm.py` |
 
 一次 rollout 的数据流：
@@ -126,7 +126,7 @@ math_reasoning_agent/
 └─ agent_project/
    ├─ config.py              # 环境变量与路径
    ├─ llm.py                 # OpenAI 兼容客户端 + Mock 客户端
-   ├─ agent.py               # s01 循环 + s02 分发 + 异常兜底
+   ├─ agent.py               # Agent 循环 + 工具分发 + 异常兜底
    ├─ case.py                # 6.1 字段的 pydantic 模型
    ├─ judge.py               # \boxed 抽取、答案规范化、rubric 评分
    ├─ runner.py              # 8 次 rollout、轨迹、token、指标
@@ -274,7 +274,7 @@ python -m agent_project.validation --jsonl ... --enforce-difficulty
 
 ### 6.4 接收其他同学的数据批量跑
 
-1. 提交者按 `数据交接说明_给其他同学.docx` 准备 6.1 格式的题目，
+1. 提交者按 `cases/<题目id>/case.json` 的字段格式准备 6.1 题目，
    放进 `cases/`。**唯一规定格式**：一题一个文件夹，文件夹名就是题目
    `id`，里面只有一个 `case.json`，即 `cases/<题目id>/case.json`。
    不接受平铺 JSON，也不接受图片、PDF 等附件。
@@ -364,7 +364,7 @@ python -m agent_project.integrate --result outputs/<case_id>_result.json \
 - 元数据：`id`、`source_title`、`source_url`、`domain`、`subdomain`、`file_path`
 - 题目：`context`、`question`、`answer`、`rubric`
 - 设计：`design_rationale`、`solution_steps`、`evidence`、`scoring_method`、`human_review`
-- 轨迹：`trajectory`（数组，至少一条带思维链、带工具轨迹；当前基线为 Qwen，强模型版本见第 13 节）
+- 轨迹：`trajectory`（数组，至少一条带思维链、带工具轨迹；当前基线为 Qwen，强模型版本见第 12 节）
 - 难度：`rollout_35B_results`（8 条 Qwen3.5-35B-A3B rollout）、`average_accuracy`
 
 `trajectory` 每项：`setting`、`messages`（assistant 保留 `reasoning_content` 和
@@ -460,20 +460,7 @@ python -m unittest discover -s tests -v
 
 ---
 
-## 11. 与 s01/s02 的对应
-
-| 教程概念 | 本项目 |
-|---|---|
-| s01 `while True` + `stop_reason` | `Agent.agent_loop` 的 `while True` + `finish_reason`/`tool_calls` 判断 |
-| s01 工具结果追加 | `role="tool"` + `tool_call_id` 回填 |
-| s02 `TOOLS` 清单 | `tools()` 由 pydantic `args_model` 自动生成 schema |
-| s02 `TOOL_HANDLERS[name]` | `_TOOL_FACTORIES` + `build_tools()` + `impls.get(name)` |
-| s02 `handler(**block.input)` | `tool.args_model.model_validate_json(...)` + `tool.run(**args.model_dump())` |
-| s02 加入工具只加两处 | 新增工具类 + 在 `_TOOL_FACTORIES` 加一行 |
-
----
-
-## 12. 测试
+## 11. 测试
 
 ```bash
 python -m unittest discover -s tests -v
@@ -485,7 +472,7 @@ mock 端到端 rollout。
 
 ---
 
-## 13. 后续升级项（不属于当前基线）
+## 12. 后续升级项（不属于当前基线）
 
 当前基线只要求跑通 1–4 道题并交付格式合规的数据。以下项目留到后续阶段：
 
