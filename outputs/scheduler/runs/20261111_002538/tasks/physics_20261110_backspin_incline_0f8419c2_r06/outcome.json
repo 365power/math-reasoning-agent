@@ -1,0 +1,22 @@
+{
+  "id": "physics_20261110_backspin_incline_0f8419c2#r06",
+  "case_id": "physics_20261110_backspin_incline_0f8419c2",
+  "rollout_id": 6,
+  "status": "success",
+  "answer": "\\frac{1206}{4205} \\frac{v_0^2}{g}",
+  "accuracy": 0,
+  "step_score": 5.0,
+  "step_max": 10,
+  "tokens": 33326,
+  "tool_calls": 0,
+  "duration_s": 447.706,
+  "termination": "model_finished",
+  "error": null,
+  "model": "Qwen/Qwen3.5-35B-A3B",
+  "mock": false,
+  "run_id": "20261111_002538",
+  "record_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\physics_20261110_backspin_incline_0f8419c2_r06\\record.json",
+  "trajectory_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\physics_20261110_backspin_incline_0f8419c2_r06\\trajectory.json",
+  "log_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\physics_20261110_backspin_incline_0f8419c2_r06\\worker.log",
+  "workspace": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\workspaces\\physics_20261110_backspin_incline_0f8419c2_r06"
+}

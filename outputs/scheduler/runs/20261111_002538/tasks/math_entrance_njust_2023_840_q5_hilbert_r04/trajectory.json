@@ -1,0 +1,9 @@
+{
+  "system": "You are a rigorous scientific reasoning agent. You may call tools to support your work, but you must complete the mathematical argument yourself.\n\nRules:\n1. Analyze the problem structure first. Before giving the final answer, call the python tool at least once for numerical verification.\n2. Numerical results are only for verification; they cannot replace a rigorous proof.\n3. State the justification for every reasoning step. Do not invent unverified theorems or tool results.\n4. Put only the final value or expression inside \\boxed{...} (for example \\boxed{\\frac{\\pi}{4}}). Do not put a full equation, a summation process, or prose inside it.\n5. Write the entire response in English.\n",
+  "messages": [
+    {
+      "role": "user",
+      "content": "[Problem]\nFor a positive integer \\(n\\), let \\(H\\) be the \\(n\\times n\\) matrix with entries \\(H_{ij}=\\int_0^1 x^{i+j-2}\\,dx\\) for \\(1\\le i,j\\le n\\). Determine the \\(j\\)-th entry of the last row of \\(H^{-1}\\), as a function of \\(n\\) and \\(j\\), for \\(1\\le j\\le n\\).\n\n\nProvide a complete, verifiable derivation. If you use tools, explain how the tool results support your reasoning. Give the final answer with \\boxed{...} and write the entire response in English."
+    }
+  ]
+}

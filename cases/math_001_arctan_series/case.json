@@ -1,0 +1,77 @@
+{
+  "id": "math_001_arctan_series",
+  "source_title": "Telescoping Arctangent Series (adapted from Tongji Advanced Mathematics, Infinite Series)",
+  "source_url": "Tongji University Department of Mathematics, Advanced Mathematics (7th ed.), Vol. 2, Chapter 12, Higher Education Press (bibliographic reference; no DOI)",
+  "domain": "Mathematics",
+  "subdomain": "Calculus / Infinite Series",
+  "file_path": "embedded",
+  "context": "This item is a representative exercise on telescoping series from the infinite-series chapter of the Chinese postgraduate entrance examination (Mathematics I). It tests the arctangent difference identity and telescoping summation. The statement is self-contained and the answer is unique; the reference answer and the step-by-step solution have been reviewed.",
+  "question": "Find the sum of the series $\\displaystyle\\sum_{n=1}^{\\infty}\\arctan\\frac{1}{2n^{2}}$, and show the limit of the partial sums.",
+  "answer": "\\frac{\\pi}{4}",
+  "rubric": {
+    "total_points": 10,
+    "criteria": [
+      {
+        "criterion_id": 1,
+        "description": "Correctly states the arctangent difference identity $\\arctan a-\\arctan b=\\arctan\\frac{a-b}{1+ab}$ and sets $a=2n+1,\\ b=2n-1$.",
+        "points": 2
+      },
+      {
+        "criterion_id": 2,
+        "description": "Correctly verifies $\\frac{(2n+1)-(2n-1)}{1+(2n+1)(2n-1)}=\\frac{1}{2n^{2}}$.",
+        "points": 2
+      },
+      {
+        "criterion_id": 3,
+        "description": "Obtains the telescoping form $\\arctan\\frac{1}{2n^{2}}=\\arctan(2n+1)-\\arctan(2n-1)$.",
+        "points": 2
+      },
+      {
+        "criterion_id": 4,
+        "description": "Writes the partial sum $S_N$ and correctly telescopes it to $S_N=\\arctan(2N+1)-\\arctan 1$.",
+        "points": 2
+      },
+      {
+        "criterion_id": 5,
+        "description": "Takes the limit correctly: $\\arctan(2N+1)\\to\\frac{\\pi}{2}$, and obtains $\\frac{\\pi}{4}$.",
+        "points": 2
+      }
+    ]
+  },
+  "design_rationale": "This item tests the arctangent difference identity, partial sums, and limits. The main difficulties are: (1) the general term cannot be summed directly, and the ratio test is inconclusive because its limit is 1; (2) one must construct the difference of adjacent terms instead of applying a standard power-series expansion; (3) after telescoping, one must correctly handle $\\arctan(2N+1)\\to\\pi/2$ and subtract $\\arctan 1=\\pi/4$. A common failure mode for 35B-scale models is to switch to a convergence test, approximate arctan by its argument, or drop the $\\pi/4$ term; the item is therefore designed as a high-confusion problem.",
+  "solution_steps": [
+    "Use the arctangent difference identity: $\\arctan a-\\arctan b=\\arctan\\frac{a-b}{1+ab}$ for $ab>-1$.",
+    "Set $a=2n+1,\\ b=2n-1$. Then $a-b=2$ and $1+ab=1+(2n+1)(2n-1)=4n^{2}$, so $\\frac{a-b}{1+ab}=\\frac{2}{4n^{2}}=\\frac{1}{2n^{2}}$.",
+    "Therefore $\\arctan\\frac{1}{2n^{2}}=\\arctan(2n+1)-\\arctan(2n-1)$.",
+    "The partial sum is $S_N=\\sum_{n=1}^{N}\\left[\\arctan(2n+1)-\\arctan(2n-1)\\right]$. Telescoping gives $S_N=\\arctan(2N+1)-\\arctan 1$.",
+    "As $N\\to\\infty$, $\\arctan(2N+1)\\to\\frac{\\pi}{2}$ and $\\arctan 1=\\frac{\\pi}{4}$, so the series equals $\\frac{\\pi}{2}-\\frac{\\pi}{4}=\\frac{\\pi}{4}$.",
+    "Numerical check: summing the first 300000 terms gives approximately 0.7853981634, consistent with $\\pi/4$."
+  ],
+  "evidence": [
+    {
+      "source": "Embedded problem context (arctangent identity)",
+      "location": "Context section 1, Eq. (1)",
+      "content": "$\\arctan a-\\arctan b=\\arctan\\frac{a-b}{1+ab}$ for $ab>-1$."
+    },
+    {
+      "source": "Embedded problem context (telescoping method)",
+      "location": "Context section 2, solution step 4",
+      "content": "If the general term can be written as $b_n-b_{n+1}$, the partial sum cancels term by term, leaving only the first and last terms before taking the limit."
+    },
+    {
+      "source": "Python numerical verification",
+      "location": "Context section 3, numerical check n=1..300000",
+      "content": "$S_{300000}\\approx 0.785398163397448$, while $\\pi/4\\approx 0.785398163397448$."
+    }
+  ],
+  "scoring_method": {
+    "method": "rubric_based_llm_judge",
+    "description": "Answer-level correctness is scored 0 or 1 by exact match after normalization. The step score is assigned by an LLM judge against the five rubric criteria, 2 points each, maximum 10. The judge receives only the problem, the reference answer, and the candidate solution, and does not see the rollout index.",
+    "max_score": 10
+  },
+  "human_review": {
+    "status": "approved",
+    "review_result": "Manual review: the choice of a and b in the arctangent identity and the telescoping result are correct; numerical checks for n=1,2 agree; the final limit is pi/4.",
+    "modification": "None."
+  }
+}

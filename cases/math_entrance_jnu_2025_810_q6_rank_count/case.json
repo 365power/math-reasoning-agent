@@ -1,0 +1,66 @@
+{
+  "id": "math_entrance_jnu_2025_810_q6_rank_count",
+  "source_title": "Jinan University 2025 Master's Entrance Examination, 810 Advanced Algebra, Paper A",
+  "source_url": "https://yz.jnu.edu.cn/_upload/article/files/df/c8/ce6e82794d15812f482df8904eb3/02f6b974-bf72-48cf-a5cf-57e3b0db9740.pdf",
+  "domain": "Mathematics",
+  "subdomain": "Linear Algebra / Finite-Field Enumeration",
+  "file_path": "embedded",
+  "context": "The rank of a matrix in this problem is its rank over the field with two elements.",
+  "question": "Over \\(\\mathbb F_2\\), let \\(A=\\operatorname{diag}(1,1,1,0,0,0,0)\\) and \\(B=\\operatorname{diag}(1,1,1,1,1,0,0)\\). How many \\(7\\times7\\) matrices \\(C\\) satisfy \\(\\operatorname{rank}(C)=4\\), \\(\\operatorname{rank}(BC)=3\\), and \\(\\operatorname{rank}(ABC)=1\\)?",
+  "answer": "40002439680",
+  "rubric": {
+    "total_points": 10,
+    "criteria": [
+      {
+        "criterion_id": 1,
+        "description": "Uses rank-nullity to identify the two-dimensional subspace that must lie in the image of BC.",
+        "points": 2
+      },
+      {
+        "criterion_id": 2,
+        "description": "Counts the seven admissible images of BC.",
+        "points": 2
+      },
+      {
+        "criterion_id": 3,
+        "description": "Counts the lifts using a line in the kernel and a graph in the quotient, or an equivalent bijective count.",
+        "points": 3
+      },
+      {
+        "criterion_id": 4,
+        "description": "Counts the surjective maps onto a fixed image.",
+        "points": 2
+      },
+      {
+        "criterion_id": 5,
+        "description": "Computes the correct final integer.",
+        "points": 1
+      }
+    ]
+  },
+  "design_rationale": "The source exam proves a rank inequality. This extension counts the finite-field configurations that attain equality under three simultaneous rank constraints. The crucial steps are identifying the required containment, counting lifts through a quotient, and counting surjective maps onto each image.",
+  "solution_steps": [
+    "Let \\(U=\\operatorname{im}(BC)\\) and \\(K=\\ker(A|_{\\operatorname{im}B})=\\langle e_4,e_5\\rangle\\). Since \\(\\dim U=3\\), rank-nullity on \\(A|_U\\) gives \\(\\operatorname{rank}(ABC)=1\\) exactly when \\(K\\subseteq U\\).",
+    "The admissible \\(U\\) correspond to lines in the three-dimensional quotient \\(\\operatorname{im}(B)/K\\), giving \\(2^3-1=7\\) choices.",
+    "Let \\(T=\\operatorname{im}C\\). For fixed \\(U\\), the conditions \\(B(T)=U\\) and \\(\\dim T=4\\) force \\(L=T\\cap\\ker B\\) to be a line. There are three choices for \\(L\\) in the two-dimensional kernel. In \\(B^{-1}(U)/L\\simeq U\\oplus(\\ker B/L)\\), the subspace \\(T/L\\) is the graph of a linear map from \\(U\\) into the one-dimensional space \\(\\ker B/L\\). This gives \\(2^3=8\\) choices for each \\(L\\).",
+    "For each \\(T\\), the number of maps from \\(\\mathbb F_2^7\\) onto \\(T\\) is the number of ordered independent sets of four rows in \\(\\mathbb F_2^7\\), namely \\(\\prod_{i=0}^3(2^7-2^i)\\). Different images \\(T\\) give disjoint sets of matrices.",
+    "Multiplying gives \\(7\\cdot3\\cdot8\\cdot127\\cdot126\\cdot124\\cdot120=40002439680\\)."
+  ],
+  "evidence": [
+    {
+      "source": "Jinan University 2025 Master's Entrance Examination, 810 Advanced Algebra, Paper A (self-contained adapted problem)",
+      "location": "Page 2, Question 6.",
+      "content": "The source exam bounds the sum of the ranks of AB and BC by the sum of the ranks of ABC and B. The new question fixes the linear maps A and B over a finite field and counts equality configurations subject to an extra constraint on the rank of C."
+    }
+  ],
+  "scoring_method": {
+    "method": "rubric_based_llm_judge",
+    "description": "Assess the final answer separately from the reasoning. Award each rubric criterion independently, accept mathematically equivalent forms and valid alternative derivations, and sum the awarded points out of 10.",
+    "max_score": 10
+  },
+  "human_review": {
+    "status": "approved",
+    "review_result": "Reviewed by the project team: the rank-nullity reduction, the quotient and lift counts, and the surjective-map count were checked independently; the product equals 40002439680.",
+    "modification": "None."
+  }
+}

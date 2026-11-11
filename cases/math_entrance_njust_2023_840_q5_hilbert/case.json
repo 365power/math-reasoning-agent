@@ -1,0 +1,60 @@
+{
+  "id": "math_entrance_njust_2023_840_q5_hilbert",
+  "source_title": "Nanjing University of Science and Technology 2023 Master's Entrance Examination, 840 Advanced Algebra",
+  "source_url": "https://gs.njust.edu.cn/_upload/article/files/e3/86/bd4e5ac34400905a1d9324e71695/52a18489-bb0c-43f3-8708-b54512aebb22.pdf",
+  "domain": "Mathematics",
+  "subdomain": "Numerical Linear Algebra / Moment Matrices",
+  "file_path": "embedded",
+  "context": "",
+  "question": "For a positive integer \\(n\\), let \\(H\\) be the \\(n\\times n\\) matrix with entries \\(H_{ij}=\\int_0^1 x^{i+j-2}\\,dx\\) for \\(1\\le i,j\\le n\\). Determine the \\(j\\)-th entry of the last row of \\(H^{-1}\\), as a function of \\(n\\) and \\(j\\), for \\(1\\le j\\le n\\).",
+  "answer": "(-1)^{n-j}(2n-1)\\binom{2n-2}{n-1}\\binom{n-1}{j-1}\\binom{n+j-2}{j-1}",
+  "rubric": {
+    "total_points": 10,
+    "criteria": [
+      {
+        "criterion_id": 1,
+        "description": "Establishes invertibility or invokes a valid inverse identity with all assumptions satisfied.",
+        "points": 2
+      },
+      {
+        "criterion_id": 2,
+        "description": "Connects the inverse row to the moment conditions or uses an equivalent inverse construction.",
+        "points": 3
+      },
+      {
+        "criterion_id": 3,
+        "description": "Correctly handles normalization and the signed binomial coefficients.",
+        "points": 3
+      },
+      {
+        "criterion_id": 4,
+        "description": "Gives the correct formula for all stated indices.",
+        "points": 2
+      }
+    ]
+  },
+  "design_rationale": "This translated exam item provides a comparison sample. It requires either a correct Hilbert inverse identity or a connection between a monomial Gram matrix and orthogonal polynomials. Familiarity with the closed form can make the item substantially easier.",
+  "solution_steps": [
+    "The matrix is positive definite because for any nonzero real vector \\(c\\), \\(c^THc=\\int_0^1(\\sum_{j=1}^n c_jx^{j-1})^2\\,dx>0\\).",
+    "Writing a row vector \\(r=(r_1,\\ldots,r_n)\\) as the coefficient vector of \\(q(x)=\\sum_{j=1}^n r_jx^{j-1}\\), the equation \\(rH=e_n^T\\) requires the moments of \\(q\\) against \\(1,x,\\ldots,x^{n-2}\\) to vanish and its moment against \\(x^{n-1}\\) to equal 1.",
+    "Let \\(m=n-1\\) and \\(p(x)=P_m(2x-1)\\), where \\(P_m\\) is the Legendre polynomial. The shifted polynomial is orthogonal to lower-degree polynomials, has squared norm \\(1/(2m+1)\\) on \\([0,1]\\), and has leading coefficient \\(\\binom{2m}{m}\\). Thus \\(\\int_0^1p(x)x^m\\,dx=1/[(2m+1)\\binom{2m}{m}]\\).",
+    "It follows that \\(q=(2m+1)\\binom{2m}{m}p\\). The shifted Legendre coefficient at degree \\(k\\) is \\((-1)^{m-k}\\binom{m}{k}\\binom{m+k}{k}\\), as follows by expanding \\(\\frac{1}{m!}\\frac{d^m}{dx^m}[x^m(x-1)^m]\\). Setting \\(k=j-1\\) gives the answer."
+  ],
+  "evidence": [
+    {
+      "source": "Nanjing University of Science and Technology 2023 Master's Entrance Examination, 840 Advanced Algebra",
+      "location": "Page 1, Question 5.",
+      "content": "The exam defines a moment matrix using integrals of monomials over the unit interval and asks for the last row of its inverse. This is an English restatement of the same mathematical task."
+    }
+  ],
+  "scoring_method": {
+    "method": "rubric_based_llm_judge",
+    "description": "Assess the final answer separately from the reasoning. Award each rubric criterion independently, accept mathematically equivalent forms and valid alternative derivations, and sum the awarded points out of 10.",
+    "max_score": 10
+  },
+  "human_review": {
+    "status": "approved",
+    "review_result": "Reviewed by the project team: the Hilbert-inverse identity and the shifted Legendre coefficients were checked independently; the last-row formula matches direct inversion for n=2,3,4.",
+    "modification": "None."
+  }
+}

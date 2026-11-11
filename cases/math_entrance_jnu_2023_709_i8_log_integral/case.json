@@ -1,0 +1,60 @@
+{
+  "id": "math_entrance_jnu_2023_709_i8_log_integral",
+  "source_title": "Jinan University 2023 Master's Entrance Examination, 709 Mathematical Analysis, Paper A",
+  "source_url": "https://yz.jnu.edu.cn/_upload/article/files/a8/08/ff4d6fa84fa8999a63f690800b00/687d8da3-198b-4702-bb7d-fc54daf1f45e.pdf",
+  "domain": "Mathematics",
+  "subdomain": "Mathematical Analysis / Parameter-Dependent Integrals",
+  "file_path": "embedded",
+  "context": "",
+  "question": "Let \\(a\\) and \\(b\\) be real numbers with \\(0<a<b\\). Evaluate the improper integral \\(\\int_0^1 \\sin(\\log(1/x))\\,\\frac{x^b-x^a}{\\log x}\\,dx\\), where \\(\\log\\) is the natural logarithm.",
+  "answer": "\\arctan(b+1)-\\arctan(a+1)",
+  "rubric": {
+    "total_points": 10,
+    "criteria": [
+      {
+        "criterion_id": 1,
+        "description": "Rewrites the logarithmic quotient with the correct sign and parameter limits, or gives a valid alternative transformation.",
+        "points": 3
+      },
+      {
+        "criterion_id": 2,
+        "description": "Justifies convergence and any integral exchange or differentiation used.",
+        "points": 2
+      },
+      {
+        "criterion_id": 3,
+        "description": "Computes the damped sine integral including the Jacobian contribution.",
+        "points": 3
+      },
+      {
+        "criterion_id": 4,
+        "description": "Gives the correct closed form.",
+        "points": 2
+      }
+    ]
+  },
+  "design_rationale": "This translated exam item provides a comparison sample. The logarithmic quotient can be replaced with a parameter integral, which must be justified before the damped sine transform is evaluated. Sign errors and the omitted Jacobian factor are useful distinctions for scoring.",
+  "solution_steps": [
+    "For \\(0<x<1\\), \\((x^b-x^a)/\\log x=\\int_a^b x^u\\,du\\).",
+    "The absolute value of the joint integrand is bounded by \\(x^a\\) on \\((0,1)\\times[a,b]\\), so the joint integral is absolutely convergent and the order can be exchanged.",
+    "The substitution \\(x=e^{-t}\\) gives the inner integral \\(\\int_0^\\infty e^{-(u+1)t}\\sin t\\,dt=1/(1+(u+1)^2)\\), the imaginary part of \\(1/(u+1-i)\\).",
+    "Integrating this last expression from \\(a\\) to \\(b\\) gives \\(\\arctan(b+1)-\\arctan(a+1)\\)."
+  ],
+  "evidence": [
+    {
+      "source": "Jinan University 2023 Master's Entrance Examination, 709 Mathematical Analysis, Paper A",
+      "location": "Page 1, Section I, Question 8.",
+      "content": "The exam asks for the integral of an oscillatory logarithmic factor multiplied by the divided difference of two powers of x. This is an English restatement of the same mathematical task."
+    }
+  ],
+  "scoring_method": {
+    "method": "rubric_based_llm_judge",
+    "description": "Assess the final answer separately from the reasoning. Award each rubric criterion independently, accept mathematically equivalent forms and valid alternative derivations, and sum the awarded points out of 10.",
+    "max_score": 10
+  },
+  "human_review": {
+    "status": "approved",
+    "review_result": "Reviewed by the project team: the parameter-integral reduction and the damped sine integral were checked independently; the closed form arctan(b+1)-arctan(a+1) matches a numerical check for a=1, b=2.",
+    "modification": "None."
+  }
+}

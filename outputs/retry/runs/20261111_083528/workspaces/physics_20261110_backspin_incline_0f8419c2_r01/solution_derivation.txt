@@ -1,0 +1,67 @@
+Problem: Maximum vertical rise of a sphere with initial backspin on an incline.
+
+Parameters:
+- Mass m, Radius R, Moment of Inertia I = (2/5)mR^2.
+- Incline angle theta = pi/6. sin(theta) = 1/2, cos(theta) = sqrt(3)/2.
+- Initial conditions: v(0) = v0 > 0, omega(0) = -v0/(2R).
+- Kinetic friction mu_k = sqrt(3)/4.
+- Static friction mu_s = 1/2.
+
+Phase 1: Slipping
+Relative velocity at contact: v_rel = v - R*omega.
+At t=0: v_rel = v0 - R(-v0/2R) = 1.5 v0 > 0.
+Friction acts downhill (negative direction).
+Translational equation: m*a = -mg*sin(theta) - mu_k*N = -mg(sin(theta) + mu_k*cos(theta)).
+Rotational equation: I*alpha = tau = f_k*R (torque acts to reduce backspin).
+Since v_rel > 0, friction opposes motion, acting downhill. To bring the system to rolling (v = R*omega), alpha must be positive (reducing negative omega).
+Thus, I*alpha = + mu_k * m*g*cos(theta) * R.
+Acceleration a1 = -g(sin(theta) + mu_k*cos(theta)).
+Alpha1 = (mu_k * m*g*cos(theta) * R) / I = (mu_k * g * cos(theta) * R) / ( (2/5)mR^2 ) = (5/2) * (mu_k * g * cos(theta) / R).
+
+Calculate constants:
+sin = 1/2, cos = sqrt(3)/2, mu_k = sqrt(3)/4.
+mu_k * cos = 3/8.
+a1 = -g(1/2 + 3/8) = -7/8 g.
+R*alpha1 = (5/2) * (3/8) g = 15/16 g.
+
+Time to roll (t1):
+v(t1) = R*omega(t1)
+v0 + a1*t1 = R*(omega0 + alpha1*t1)
+v0 - 7/8 g t1 = R*(-v0/(2R) + 15/16 g/R * t1) = -v0/2 + 15/16 g t1.
+1.5 v0 = (7/8 + 15/16) g t1 = (14/16 + 15/16) g t1 = 29/16 g t1.
+t1 = (3/2) / (29/16) * v0/g = 24/29 v0/g.
+
+Velocity at t1:
+v1 = v0 - 7/8 g * (24/29 v0/g) = v0(1 - 21/29) = 8/29 v0.
+Check omega: omega1 = -v0/2R + 15/16 g/R * 24/29 v0/g = -v0/2R + 45/58 v0/R = (-29+45)/58 v0/R = 16/58 v0/R = 8/29 v0/R.
+Matches.
+
+Distance d1:
+v1^2 = v0^2 + 2*a1*d1 => d1 = (v1^2 - v0^2)/(2*a1) = (v0^2 - (8/29 v0)^2) / (2 * 7/8 g)
+= v0^2 (1 - 64/841) / (7/4 g) = v0^2 (777/841) * (4/7g) = v0^2/g * 444/841.
+
+Phase 2: Rolling
+Condition: v = R*omega.
+Equation of motion for rolling without slipping:
+Net force = -mg sin + fs.
+Torque = fs*R.
+a = -g sin / (1 + I/mR^2) = -g(1/2) / (1 + 2/5) = -g/2 / 7/5 = -5/14 g.
+Distance d2 to stop:
+0 = v1^2 + 2*a2*d2 => d2 = -v1^2 / (2*a2) = v1^2 / (2 * 5/14 g) = v1^2 / (5/7 g) = 7 v1^2 / 5g.
+d2 = 7/5g * (64/841 v0^2) = 448 / 4205 * v0^2/g.
+
+Total distance D = d1 + d2 = v0^2/g * (444/841 + 448/4205)
+= v0^2/g * (2220/4205 + 448/4205) = v0^2/g * 2668/4205.
+
+Height h = D * sin(theta) = D/2 = v0^2/g * 1334/4205.
+Simplify: 1334/29 = 46, 4205/29 = 145.
+h = 46/145 * v0^2/g.
+
+Static friction check:
+fs = I*alpha_roll/R = (2/5 m R^2) * (a/R) / R = 2/5 m a = 2/5 m (-5/14 g) = -1/7 mg.
+Magnitude 1/7 mg.
+Max fs = mu_s * m g cos = 1/2 * sqrt(3)/2 mg = sqrt(3)/4 mg approx 0.433 mg.
+1/7 approx 0.143 mg.
+0.143 < 0.433. Valid.
+
+Result: 46 v0^2 / (145 g).

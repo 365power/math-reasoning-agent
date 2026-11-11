@@ -1,0 +1,39 @@
+{
+  "case_id": "math_001_arctan_series",
+  "parameters": {
+    "model": "Qwen/Qwen3.5-35B-A3B",
+    "base_url": "https://api-inference.modelscope.cn/v1",
+    "judge_model": "deepseek-flash",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "max_tokens": 16384,
+    "rollouts": 8,
+    "max_tool_rounds": 12,
+    "tool_timeout_seconds": 30,
+    "judge_mode": "llm"
+  },
+  "metrics": {
+    "average_accuracy": 1.0,
+    "correct_rollouts": 8,
+    "average_step_score": 4.75,
+    "step_score_max": 10,
+    "total_tool_calls": 10,
+    "successful_tool_calls": 10,
+    "failed_tool_calls": 0,
+    "tool_call_success_rate": 1.0,
+    "total_tokens": 95300,
+    "average_tokens_per_rollout": 11912.5,
+    "total_reasoning_tokens": 47967,
+    "average_duration_seconds": 108.67,
+    "termination_counts": {
+      "model_finished": 8
+    },
+    "judge_usage": {
+      "prompt_tokens": 11291,
+      "completion_tokens": 15406,
+      "total_tokens": 26697,
+      "reasoning_tokens": 13939
+    }
+  },
+  "elapsed_seconds": 869.38
+}

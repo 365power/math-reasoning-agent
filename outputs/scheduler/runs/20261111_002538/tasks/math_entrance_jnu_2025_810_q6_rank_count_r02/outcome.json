@@ -1,0 +1,22 @@
+{
+  "id": "math_entrance_jnu_2025_810_q6_rank_count#r02",
+  "case_id": "math_entrance_jnu_2025_810_q6_rank_count",
+  "rollout_id": 2,
+  "status": "success",
+  "answer": "40002439680",
+  "accuracy": 1,
+  "step_score": 6.0,
+  "step_max": 10,
+  "tokens": 33097,
+  "tool_calls": 0,
+  "duration_s": 290.397,
+  "termination": "model_finished",
+  "error": null,
+  "model": "Qwen/Qwen3.5-35B-A3B",
+  "mock": false,
+  "run_id": "20261111_002538",
+  "record_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\math_entrance_jnu_2025_810_q6_rank_count_r02\\record.json",
+  "trajectory_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\math_entrance_jnu_2025_810_q6_rank_count_r02\\trajectory.json",
+  "log_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\math_entrance_jnu_2025_810_q6_rank_count_r02\\worker.log",
+  "workspace": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\workspaces\\math_entrance_jnu_2025_810_q6_rank_count_r02"
+}

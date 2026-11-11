@@ -1,0 +1,18 @@
+{
+  "run_id": "20261111_092455",
+  "task": {
+    "id": "math_001_arctan_series#r03",
+    "case_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\cases\\math_001_arctan_series\\case.json",
+    "rollout_id": 3,
+    "timeout_s": null,
+    "metadata": {}
+  },
+  "case_id": "math_001_arctan_series",
+  "case_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\cases\\math_001_arctan_series\\case.json",
+  "workspace": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\retry3\\runs\\20261111_092455\\workspaces\\math_001_arctan_series_r03",
+  "record_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\retry3\\runs\\20261111_092455\\tasks\\math_001_arctan_series_r03\\record.json",
+  "trajectory_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\retry3\\runs\\20261111_092455\\tasks\\math_001_arctan_series_r03\\trajectory.json",
+  "mock": false,
+  "use_llm_judge": true,
+  "model": null
+}

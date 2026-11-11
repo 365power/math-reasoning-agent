@@ -1,0 +1,19 @@
+* text=auto
+
+# 交付数据与源码统一使用 LF，避免 Windows clone 后 CRLF 破坏 5.1 校验
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.txt text eol=lf
+*.example text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# 二进制文件不要做换行转换
+*.docx binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary

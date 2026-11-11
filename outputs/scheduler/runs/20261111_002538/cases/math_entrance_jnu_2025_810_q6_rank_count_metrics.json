@@ -1,0 +1,39 @@
+{
+  "case_id": "math_entrance_jnu_2025_810_q6_rank_count",
+  "parameters": {
+    "model": "Qwen/Qwen3.5-35B-A3B",
+    "base_url": "https://api-inference.modelscope.cn/v1",
+    "judge_model": "deepseek-flash",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "max_tokens": 16384,
+    "rollouts": 8,
+    "max_tool_rounds": 12,
+    "tool_timeout_seconds": 30,
+    "judge_mode": "llm"
+  },
+  "metrics": {
+    "average_accuracy": 0.875,
+    "correct_rollouts": 7,
+    "average_step_score": 4.375,
+    "step_score_max": 10,
+    "total_tool_calls": 2,
+    "successful_tool_calls": 2,
+    "failed_tool_calls": 0,
+    "tool_call_success_rate": 1.0,
+    "total_tokens": 283289,
+    "average_tokens_per_rollout": 35411.1,
+    "total_reasoning_tokens": 255113,
+    "average_duration_seconds": 333.99,
+    "termination_counts": {
+      "model_finished": 8
+    },
+    "judge_usage": {
+      "prompt_tokens": 16994,
+      "completion_tokens": 44356,
+      "total_tokens": 61350,
+      "reasoning_tokens": 43009
+    }
+  },
+  "elapsed_seconds": 2671.95
+}

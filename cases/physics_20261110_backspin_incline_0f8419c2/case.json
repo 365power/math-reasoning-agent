@@ -1,0 +1,93 @@
+{
+  "id": "physics_20261110_backspin_incline_0f8419c2",
+  "source_title": "University Physics Volume 1, 2018 revision UP1-2016-002(05/18)-MJ, Section 11.1: Rolling Motion",
+  "source_url": "https://d3bxy9euw4e147.cloudfront.net/oscms-prodcms/media/documents/UniversityPhysicsVolume1-LR.pdf",
+  "domain": "Physics",
+  "subdomain": "Classical Mechanics / Sliding and Rolling",
+  "file_path": "embedded",
+  "context": "Self-contained adaptation of the slipping and rolling methods in University Physics Volume 1 by Samuel J. Ling, Jeff Sanny, and William Moebs, OpenStax, 2018 revision. The adaptation combines uphill motion, initial backspin, and a transition from sliding to rolling. The cited PDF states CC BY 4.0. Download for free at https://openstax.org/details/books/university-physics-volume-1. License: https://creativecommons.org/licenses/by/4.0/.",
+  "question": "A uniform solid sphere of mass m>0, radius R>0, and moment of inertia I=(2/5)mR^2 moves on a fixed plane inclined at theta=pi/6 above the horizontal. Gravity has magnitude g>0. Let v be the signed center-of-mass velocity along the plane, positive uphill. Define the signed angular velocity omega so that rolling uphill without slipping satisfies v=R*omega. At time t=0, v=v_0>0 and omega=-v_0/(2R), so the sphere initially has backspin. The coefficient of kinetic friction is mu_k=sqrt(3)/4, and the coefficient of static friction is mu_s=1/2. The plane is long enough that the sphere never reaches an edge. The sphere remains in contact with the plane. Neglect air resistance and rolling resistance; kinetic friction is the only dissipative effect. Determine the maximum vertical rise h_max of the center of mass above its initial height before its first turning point. Give one exact expression in terms of v_0 and g, and justify the slipping and rolling stages in your working.",
+  "answer": "\\frac{46v_0^2}{145g}",
+  "rubric": {
+    "total_points": 10,
+    "criteria": [
+      {
+        "criterion_id": 1,
+        "description": "Model the initial slipping stage with downhill kinetic friction. Award 1 point for f_k=3mg/8 and dv/dt=-7g/8, and 1 point for R*domega/dt=15g/16 with the stated angular sign convention.",
+        "points": 2
+      },
+      {
+        "criterion_id": 2,
+        "description": "Determine the first transition to rolling from v-R*omega=0. Award 1 point for t_r=24v_0/(29g), and 1 point for v_r=8v_0/29>0 together with a consistent slipping direction before t_r.",
+        "points": 2
+      },
+      {
+        "criterion_id": 3,
+        "description": "Compute the height gained during slipping. Award 1 point for the uphill displacement s_1=v_0*t_r-(7g/16)*t_r^2, and 1 point for h_1=s_1*sin(pi/6)=222v_0^2/(841g).",
+        "points": 2
+      },
+      {
+        "criterion_id": 4,
+        "description": "Verify that rolling can persist up to the first turning point: the required uphill static friction is mg/7, so f_s/N=2/(7sqrt(3))<mu_s=1/2.",
+        "points": 1
+      },
+      {
+        "criterion_id": 5,
+        "description": "Compute the additional rise during rolling. Award 1 point for m*g*h_2=(1/2)m*v_r^2+(1/2)I*(v_r/R)^2, and 1 point for h_2=224v_0^2/(4205g).",
+        "points": 2
+      },
+      {
+        "criterion_id": 6,
+        "description": "Combine the two height increments and simplify to h_max=h_1+h_2=46v_0^2/(145g), with the dimensions of length.",
+        "points": 1
+      }
+    ]
+  },
+  "design_rationale": "This undergraduate multistep mechanics item is intended for a single-case demo. It requires identifying the contact-point slipping velocity, using separate translational and rotational equations, locating the change of friction regime, and applying energy conservation only during rolling. Common errors are imposing v=R*omega initially, choosing friction solely from the center-of-mass velocity, conserving mechanical energy during slipping, or ignoring rotational kinetic energy. The signed backspin and the friction-regime transition make the adaptation more than a numerical substitution in the textbook example.",
+  "solution_steps": [
+    "The initial contact-point velocity along the plane is u_0=v_0-R*omega_0=3v_0/2>0, so the contact point slips uphill and kinetic friction acts downhill. The normal force is N=mg*cos(pi/6)=sqrt(3)mg/2. Hence f_k=mu_k*N=3mg/8.",
+    "During slipping, m*dv/dt=-mg*sin(pi/6)-f_k, giving dv/dt=-7g/8. The downhill friction produces positive angular acceleration under the stated convention: I*domega/dt=f_k*R. Thus R*domega/dt=15g/16. Integration gives v(t)=v_0-7gt/8 and R*omega(t)=-v_0/2+15gt/16.",
+    "The relative contact velocity is u(t)=v(t)-R*omega(t)=3v_0/2-29gt/16. Its first zero occurs at t_r=24v_0/(29g). At that instant v_r=v(t_r)=8v_0/29>0 and R*omega(t_r)=v_r. For 0<=t<t_r, u(t)>0 and v(t)>0, so the friction direction remains downhill and the transition occurs before the center of mass reverses.",
+    "The uphill displacement during slipping is s_1=v_0*t_r-(7g/16)*t_r^2=444v_0^2/(841g). Its vertical component is h_1=s_1*sin(pi/6)=222v_0^2/(841g).",
+    "For subsequent rolling, combine m*a=-mg*sin(pi/6)+f_s, I*alpha=-f_s*R, and a=R*alpha. These give a=-5g/14 and f_s=mg/7 uphill. The required ratio f_s/N=2/(7sqrt(3)) is below mu_s=1/2. Thus the sphere keeps rolling without slipping while slowing to its first turning point.",
+    "On the fixed plane, static friction does no work during pure rolling. At the turning point, v=0 and omega=0. Therefore m*g*h_2=(1/2)m*v_r^2+(1/2)I*(v_r/R)^2=(7/10)m*v_r^2. Hence h_2=7v_r^2/(10g)=224v_0^2/(4205g).",
+    "Adding the stages gives h_max=[222/841+224/4205]*v_0^2/g=46v_0^2/(145g). As an independent energy check, the initial kinetic energy is (11/20)m*v_0^2. Sliding dissipates Q=f_k*integral_0^t_r u(t)dt=(27/116)m*v_0^2. The remaining energy divided by m*g gives [11/20-27/116]*v_0^2/g=46v_0^2/(145g), in agreement with the two-stage result."
+  ],
+  "evidence": [
+    {
+      "source": "self-contained adapted problem based on OpenStax, University Physics Volume 1, 2018 revision",
+      "location": "Section 11.1, printed page 541, Eq. (11.1) and its preceding contact-point-velocity paragraph; PDF page 551 in the cited PDF.",
+      "content": "The textbook gives v_P=v_CM-R*omega and the no-slip condition v_CM=R*omega. The adapted initial condition instead gives v_P=3v_0/2."
+    },
+    {
+      "source": "OpenStax, University Physics Volume 1, 2018 revision",
+      "location": "Section 11.1, Example 11.2, Solution, printed page 546; PDF page 556.",
+      "content": "The example uses f_k=mu_k*m*g*cos(theta), Newton's translational equation, and torque about the center of mass. The present uphill, backspinning sphere requires the force signs and I=(2/5)mR^2 specified in the question."
+    },
+    {
+      "source": "OpenStax, University Physics Volume 1, 2018 revision",
+      "location": "Section 11.1, Example 11.1, part (b), printed page 544; PDF page 554.",
+      "content": "The no-slip inequality is mu_s >= tan(theta)/(1+mR^2/I). For the specified sphere and angle this requires mu_s >= 2/(7sqrt(3))."
+    },
+    {
+      "source": "OpenStax, University Physics Volume 1, 2018 revision",
+      "location": "Section 11.1, Conservation of Mechanical Energy in Rolling Motion, printed pages 546-547; PDF pages 556-557.",
+      "content": "The total mechanical energy is E_T=(1/2)m*v_CM^2+(1/2)I_CM*omega^2+mgh. Original excerpt: \"the incremental work done by the static friction force is zero.\""
+    },
+    {
+      "source": "OpenStax, University Physics Volume 1, 2018 revision",
+      "location": "Copyright and attribution page, PDF page 4, revision UP1-2016-002(05/18)-MJ.",
+      "content": "The 2018 PDF states CC BY 4.0. Attribution: Samuel J. Ling, Jeff Sanny, William Moebs, and OpenStax. Download for free at https://openstax.org/details/books/university-physics-volume-1. License: https://creativecommons.org/licenses/by/4.0/."
+    }
+  ],
+  "scoring_method": {
+    "method": "rubric_based_llm_judge",
+    "description": "Evaluate the six rubric criteria independently and sum the earned points, up to 10. Accept alternative valid derivations, including a work-energy derivation that accounts for sliding dissipation and validates the later rolling regime. The final answer must be algebraically equivalent to 46*v_0^2/(145*g); a numerical coefficient is acceptable if its absolute error from 46/145 is at most 1e-9 and the v_0^2/g factor is retained. Check dimensions and the stated sign convention. Evaluate final-answer correctness separately from the rubric score.",
+    "max_score": 10
+  },
+  "human_review": {
+    "status": "approved",
+    "review_result": "Checked the reference answer h_max=46*v_0^2/(145*g) against the two-stage motion derivation and an independent frictional-work energy balance. Confirmed the initial slipping direction, the linear and angular accelerations, t_r=24*v_0/(29*g), v_r=8*v_0/29, both height increments, and the static-friction condition. All seven solution steps agree with the final answer. The six rubric criteria correspond to the solution stages; their integer points are 2, 2, 2, 1, 2, and 1, totaling 10.",
+    "modification": "No corrections to the reference answer, solution steps, or rubric were required after checking."
+  }
+}

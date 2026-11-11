@@ -1,0 +1,38 @@
+Derivation Summary:
+Phase 1: Slipping
+- Forces: Gravity component down slope = mg sin(θ), Kinetic friction down slope = μk mg cos(θ).
+- Linear acceleration: a_cm = -g(sinθ + μk cosθ).
+- Torque: τ = μk mg cosθ R.
+- Angular acceleration: α = τ/I = (μk mg cosθ R) / (2/5 m R²) = (5/2) μk g cosθ / R.
+- Slip velocity initial: v_slip0 = v0 - Rω0 = v0 - R(-v0/2R) = 1.5 v0.
+- Slip acceleration: a_slip = a_cm - Rα = -g(sinθ + μk cosθ) - (5/2) μk g cosθ = -g(sinθ + 3.5 μk cosθ).
+- Time to roll t1 = v_slip0 / |a_slip|.
+- Velocity at t1: v1 = v0 + a_cm t1.
+
+Phase 2: Rolling
+- Check static friction: Required fs = (2/7) mg sinθ. Max fs = μs mg cosθ.
+- Condition: (2/7) tanθ ≤ μs.
+- With θ=π/6, tanθ=1/√3. 2/(7√3) ≈ 0.165 ≤ 0.5. OK.
+- No energy loss during pure rolling.
+
+Energy Calculation:
+- Initial Energy Ei = 1/2 mv0² + 1/2 I ω0² = 11/20 mv0².
+- Work done by friction Q = 1/2 fk v_slip0 t1.
+- fk = μk mg cosθ.
+- h_max = (Ei - Q) / (mg).
+
+Numerical Substitution:
+- sinθ = 1/2, cosθ = √3/2, μk = √3/4, θ=π/6.
+- a_cm = -g(1/2 + 3/8) = -7g/8.
+- Rα = (5/2)(3/8)g = 15g/16.
+- a_slip = -14g/16 - 15g/16 = -29g/16.
+- t1 = (3/2 v0) / (29g/16) = 24 v0 / 29g.
+- v1 = v0 - (7g/8)(24v0/29g) = 8v0/29.
+- fk = (√3/4)(√3/2) mg = 3/8 mg.
+- Q = 1/2 * (3/8 mg) * (3/2 v0) * (24 v0 / 29g) = 27/116 mv0².
+- Ei = 11/20 mv0² = 319/580 mv0².
+- Q = 135/580 mv0².
+- Ef = 184/580 mv0² = 46/145 mv0².
+- h_max = 46/145 v0²/g.
+
+Answer: 46/145 * v0^2/g.

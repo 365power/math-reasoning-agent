@@ -1,0 +1,60 @@
+{
+  "id": "math_entrance_jnu_2025_810_q9_logdet_bound",
+  "source_title": "Jinan University 2025 Master's Entrance Examination, 810 Advanced Algebra, Paper A",
+  "source_url": "https://yz.jnu.edu.cn/_upload/article/files/df/c8/ce6e82794d15812f482df8904eb3/02f6b974-bf72-48cf-a5cf-57e3b0db9740.pdf",
+  "domain": "Mathematics",
+  "subdomain": "Matrix Analysis / Sharp Log-Determinant Inequalities",
+  "file_path": "embedded",
+  "context": "",
+  "question": "For every integer \\(n\\ge 2\\), let \\(A\\) and \\(B\\) be real symmetric positive definite \\(n\\times n\\) matrices with \\(\\det A=\\det B\\), and set \\(M=A^{-1/2}BA^{-1/2}\\). Assume that every eigenvalue of \\(M\\) belongs to \\([1/4,4]\\). What is the largest real constant \\(c\\) such that \\(\\log\\det((A+B)/2)-\\tfrac12\\log\\det A-\\tfrac12\\log\\det B\\ge c\\|\\log M\\|_F^2\\) holds for all such pairs and dimensions? Here \\(\\log M\\) is the real symmetric matrix logarithm, \\(\\log\\) on positive scalars is the natural logarithm, and \\(\\|\\cdot\\|_F\\) is the Frobenius norm.",
+  "answer": "\\frac{\\log(5/4)}{(\\log 4)^2}",
+  "rubric": {
+    "total_points": 10,
+    "criteria": [
+      {
+        "criterion_id": 1,
+        "description": "Reduces the matrix gap and the Frobenius norm to spectral sums in the log-eigenvalues.",
+        "points": 3
+      },
+      {
+        "criterion_id": 2,
+        "description": "Proves the required global scalar lower bound on the entire spectral interval.",
+        "points": 4
+      },
+      {
+        "criterion_id": 3,
+        "description": "Provides a nontrivial equality example satisfying the determinant constraint.",
+        "points": 2
+      },
+      {
+        "criterion_id": 4,
+        "description": "States the correct sharp coefficient.",
+        "points": 1
+      }
+    ]
+  },
+  "design_rationale": "The source exam proves a qualitative determinant inequality. The extension asks for its best quantitative remainder under a spectral constraint and equal determinants. A valid solution must justify a global scalar bound and find an attainable spectral configuration with zero sum of log-eigenvalues.",
+  "solution_steps": [
+    "Write \\(L=\\log4\\) and \\(s_i=\\log\\lambda_i(M)\\). Congruence by \\(A^{1/2}\\) reduces the log-determinant gap to \\(\\sum_i[\\log((1+e^{s_i})/2)-s_i/2]=\\sum_i\\log\\cosh(s_i/2)\\). The squared Frobenius norm is \\(\\sum_i s_i^2\\).",
+    "For \\(g(s)=\\log\\cosh(s/2)\\), \\(g(0)=g'(0)=0\\), and for \\(s>0\\), \\(g(s)/s^2=\\int_0^1(1-t)g''(ts)\\,dt\\). Since \\(g''(u)=\\frac14\\operatorname{sech}^2(u/2)\\) decreases for \\(u\\ge0\\), this ratio decreases with positive \\(s\\). Evenness gives \\(g(s)\\ge [g(L)/L^2]s^2\\) throughout \\([-L,L]\\), including \\(s=0\\).",
+    "Sum the bound across the eigenvalues. The pair \\(A=I_2\\), \\(B=\\operatorname{diag}(4,1/4)\\) has equal determinants and attains equality with a nonzero right-hand norm. Extra unit eigenvalues can be appended in higher dimensions.",
+    "Since \\(\\cosh((\\log4)/2)=5/4\\), the sharp coefficient is \\(\\log(5/4)/(\\log4)^2\\)."
+  ],
+  "evidence": [
+    {
+      "source": "Jinan University 2025 Master's Entrance Examination, 810 Advanced Algebra, Paper A (self-contained adapted problem)",
+      "location": "Page 2, Question 9, part (3).",
+      "content": "The exam asks for the determinant inequality comparing a convex combination of positive definite matrices with the weighted geometric mean of their determinants. The extension studies the best coefficient of a spectral remainder in the midpoint case."
+    }
+  ],
+  "scoring_method": {
+    "method": "rubric_based_llm_judge",
+    "description": "Assess the final answer separately from the reasoning. Award each rubric criterion independently, accept mathematically equivalent forms and valid alternative derivations, and sum the awarded points out of 10.",
+    "max_score": 10
+  },
+  "human_review": {
+    "status": "approved",
+    "review_result": "Reviewed by the project team: the spectral reduction and the sharp scalar bound were checked independently; the equality example A=I, B=diag(4,1/4) attains c = log(5/4)/(log 4)^2.",
+    "modification": "None."
+  }
+}

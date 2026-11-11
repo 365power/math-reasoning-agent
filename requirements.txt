@@ -1,0 +1,6 @@
+openai>=1.40.0
+pydantic>=2.7.0
+python-dotenv>=1.0.0
+
+# 可选：供 Agent 的 python 工具做符号计算
+sympy>=1.12.0

@@ -1,0 +1,61 @@
+{
+  "id": "math_entrance_jnu_2023_709_ii2_root_asymptotics",
+  "source_title": "Jinan University 2023 Master's Entrance Examination, 709 Mathematical Analysis, Paper A",
+  "source_url": "https://yz.jnu.edu.cn/_upload/article/files/a8/08/ff4d6fa84fa8999a63f690800b00/687d8da3-198b-4702-bb7d-fc54daf1f45e.pdf",
+  "domain": "Mathematics",
+  "subdomain": "Mathematical Analysis / Asymptotics of Implicit Roots",
+  "file_path": "embedded",
+  "context": "",
+  "question": "For each integer \\(n\\ge2\\), let \\(y_n\\) be the unique real number in \\((1/2,1)\\) for which \\(\\sum_{k=1}^{n} y_n^k=1\\). Set \\(t_n=2^{-n-2}\\). Evaluate \\(\\lim_{n\\to\\infty}\\frac{8^n}{n^2}\\left(y_n-\\frac12-t_n-2(n+1)t_n^2\\right)\\).",
+  "answer": "\\frac{3}{32}",
+  "rubric": {
+    "total_points": 10,
+    "criteria": [
+      {
+        "criterion_id": 1,
+        "description": "Uses the geometric-sum identity to obtain the fixed-point equation for the shifted root.",
+        "points": 2
+      },
+      {
+        "criterion_id": 2,
+        "description": "Proves a uniform bound of order t for the shifted root.",
+        "points": 2
+      },
+      {
+        "criterion_id": 3,
+        "description": "Obtains the third-order expansion with a justified error bound or an equivalent controlled limit.",
+        "points": 4
+      },
+      {
+        "criterion_id": 4,
+        "description": "Evaluates the normalized limit correctly.",
+        "points": 2
+      }
+    ]
+  },
+  "design_rationale": "The source exam asks for a root limit. This extension asks for the third-order residual at an exponential scale. The exponent depends on n, so a fixed-order formal Taylor expansion is insufficient unless the error is controlled uniformly near the moving root.",
+  "solution_steps": [
+    "The sum of the first \\(n\\) powers is strictly increasing between \\(1/2\\) and 1, and takes values below and above 1 at the two endpoints. The geometric-sum identity, with \\(y_n\\ne1\\), yields \\(2y_n-1=y_n^{n+1}\\).",
+    "Put \\(\\delta=y_n-1/2\\), \\(m=n+1\\), and \\(t=t_n\\). Then \\(\\delta=t(1+2\\delta)^m\\). For all sufficiently large \\(n\\), the function \\(\\delta-t(1+2\\delta)^m\\) is negative at 0 and positive at \\(2t\\), since \\((1+4t)^m\\to1\\). Uniqueness of the original root implies \\(0<\\delta<2t\\).",
+    "Taylor expansion with remainder on \\(0\\le\\delta\\le2t\\) yields \\(\\delta=t+2mt\\delta+2m(m-1)t\\delta^2+O(m^3t\\delta^3)\\). The bound is uniform because the third derivative is \\(O(m^3)(1+4t)^m=O(m^3)\\) on that interval.",
+    "First substitute \\(\\delta=O(t)\\) to get \\(\\delta=t+O(mt^2)\\). Substituting again yields \\(\\delta=t+2mt^2+O(m^2t^3)\\). Using this refined estimate in the linear term and \\(\\delta^2=t^2+O(mt^3)\\) in the quadratic term gives \\(\\delta=t+2mt^2+(6m^2-2m)t^3+O(m^3t^4)\\).",
+    "Finally \\(8^nt^3=1/64\\) and \\(m/n\\to1\\), while the scaled remainder tends to zero. The required limit is \\(6/64=3/32\\)."
+  ],
+  "evidence": [
+    {
+      "source": "Jinan University 2023 Master's Entrance Examination, 709 Mathematical Analysis, Paper A (self-contained adapted problem)",
+      "location": "Page 2, Section II, Question 2.",
+      "content": "The exam considers the sum of the first n powers of cos(x), asks for the unique root in an indicated interval, and asks for its limit. This extension uses y=cos(x) and asks for a higher-order asymptotic coefficient after subtracting two leading terms."
+    }
+  ],
+  "scoring_method": {
+    "method": "rubric_based_llm_judge",
+    "description": "Assess the final answer separately from the reasoning. Award each rubric criterion independently, accept mathematically equivalent forms and valid alternative derivations, and sum the awarded points out of 10.",
+    "max_score": 10
+  },
+  "human_review": {
+    "status": "approved",
+    "review_result": "Reviewed by the project team: the root equation, the uniform O(t) bound, and the third-order expansion were checked independently; the numerical residual for n=20 and n=40 approaches the limit 3/32.",
+    "modification": "None."
+  }
+}

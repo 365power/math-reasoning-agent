@@ -1,0 +1,18 @@
+{
+  "run_id": "20261111_002538",
+  "task": {
+    "id": "physics_20261110_backspin_incline_0f8419c2#r02",
+    "case_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\cases\\physics_20261110_backspin_incline_0f8419c2\\case.json",
+    "rollout_id": 2,
+    "timeout_s": null,
+    "metadata": {}
+  },
+  "case_id": "physics_20261110_backspin_incline_0f8419c2",
+  "case_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\cases\\physics_20261110_backspin_incline_0f8419c2\\case.json",
+  "workspace": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\workspaces\\physics_20261110_backspin_incline_0f8419c2_r02",
+  "record_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\physics_20261110_backspin_incline_0f8419c2_r02\\record.json",
+  "trajectory_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\physics_20261110_backspin_incline_0f8419c2_r02\\trajectory.json",
+  "mock": false,
+  "use_llm_judge": true,
+  "model": null
+}

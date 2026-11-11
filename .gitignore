@@ -1,0 +1,32 @@
+# ===== 密钥与本地配置（必须排除） =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials*
+secrets*
+
+# ===== 虚拟环境与缓存（体积大、机器相关） =====
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== IDE 与系统文件（含个人配置） =====
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ===== 临时冒烟测试与工具工作区 =====
+_tmp_*/
+data/
+
+# ===== 其他 =====
+*.tmp

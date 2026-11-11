@@ -1,0 +1,18 @@
+{
+  "run_id": "20261111_002538",
+  "task": {
+    "id": "math_entrance_jnu_2025_810_q9_logdet_bound#r01",
+    "case_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\cases\\math_entrance_jnu_2025_810_q9_logdet_bound\\case.json",
+    "rollout_id": 1,
+    "timeout_s": null,
+    "metadata": {}
+  },
+  "case_id": "math_entrance_jnu_2025_810_q9_logdet_bound",
+  "case_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\cases\\math_entrance_jnu_2025_810_q9_logdet_bound\\case.json",
+  "workspace": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\workspaces\\math_entrance_jnu_2025_810_q9_logdet_bound_r01",
+  "record_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\math_entrance_jnu_2025_810_q9_logdet_bound_r01\\record.json",
+  "trajectory_path": "E:\\agent_learning_begin\\项目学习\\math_reasoning_agent\\outputs\\scheduler\\runs\\20261111_002538\\tasks\\math_entrance_jnu_2025_810_q9_logdet_bound_r01\\trajectory.json",
+  "mock": false,
+  "use_llm_judge": true,
+  "model": null
+}

@@ -1,0 +1,40 @@
+{
+  "case_id": "physics_20261110_backspin_incline_0f8419c2",
+  "parameters": {
+    "model": "Qwen/Qwen3.5-35B-A3B",
+    "base_url": "https://api-inference.modelscope.cn/v1",
+    "judge_model": "deepseek-flash",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "max_tokens": 16384,
+    "rollouts": 8,
+    "max_tool_rounds": 12,
+    "tool_timeout_seconds": 30,
+    "judge_mode": "llm"
+  },
+  "metrics": {
+    "average_accuracy": 0.25,
+    "correct_rollouts": 2,
+    "average_step_score": 2.125,
+    "step_score_max": 10,
+    "total_tool_calls": 0,
+    "successful_tool_calls": 0,
+    "failed_tool_calls": 0,
+    "tool_call_success_rate": null,
+    "total_tokens": 132158,
+    "average_tokens_per_rollout": 16519.8,
+    "total_reasoning_tokens": 118185,
+    "average_duration_seconds": 206.22,
+    "termination_counts": {
+      "error": 4,
+      "model_finished": 4
+    },
+    "judge_usage": {
+      "prompt_tokens": 19968,
+      "completion_tokens": 29338,
+      "total_tokens": 49306,
+      "reasoning_tokens": 28208
+    }
+  },
+  "elapsed_seconds": 1649.79
+}
